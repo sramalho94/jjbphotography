@@ -8,7 +8,7 @@ const page = () => {
 
   const initialFormValues={
     firstName:"",
-    lastNane:"",
+    lastName:"",
     phone:"",
     email:"",
     comment:""
