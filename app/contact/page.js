@@ -11,6 +11,7 @@ const page = () => {
     lastName: '',
     phone: '',
     email: '',
+    date:'',
     comment: ''
   }
 
@@ -88,6 +89,20 @@ const page = () => {
               type="email"
               required
               placeholder="Email"
+              className="border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300"
+            ></input>
+          </div>
+          <div className="flex flex-col">
+            <label className="text-[#D4CAA3]" htmlFor="email">
+              Email
+            </label>
+            <input
+              onChange={handleChange}
+              value={formValues.date}
+              id="date"
+              type="date"
+              required
+              placeholder="06/01/2023"
               className="border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-300"
             ></input>
           </div>
