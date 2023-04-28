@@ -11,7 +11,7 @@ const page = () => {
     lastName: '',
     phone: '',
     email: '',
-    date:'',
+    date: '',
     comment: ''
   }
 
@@ -28,9 +28,9 @@ const page = () => {
     setFormValues(initialFormValues)
   }
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-[#fffef2] my-2">
-      <div className="bg-white p-10 rounded-lg shadow-md px-24 m-30">
-        <h1 className="text-3xl font-bold mb-5 text-center text-dark-purpe">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-[#fffef2] ">
+      <div className="bg-white p-10 rounded-lg shadow-lg px-24 m-30 border-dark-purpe">
+        <h1 className="text-3xl font-bold mb-5 text-center text-black">
           Contact Me
         </h1>
         <form

@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <ul className="flex flex-row justify-start space-x-3 bg-gray-100 py-3">
       <div className="relative h-10 w-10 px-10">
-        <Image src="/logo.svg" fill />
+        <Image src="/logo.svg" fill alt="logo" />
       </div>
       <li className="flex flex-col justify-center">
         <Link
