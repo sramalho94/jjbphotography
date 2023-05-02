@@ -40,7 +40,7 @@ const Landing = () => {
         if (mouseOver) return
         timeout = setTimeout(() => {
           slider.next()
-        }, 3500)
+        }, 4000)
       }
       slider.on("created", () => {
         slider.container.addEventListener("mouseover", () => {
