@@ -59,30 +59,25 @@ const Landing = () => {
     },
   ]
   )
-
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="mb-20" style={{marginTop:"-50px"}}>
+    <div className="flex flex-col items-center justify-center min-h-fit">
+      <div className="mb-20">
         <h1 className="text-4xl font-bold mb-30">JJB Photography</h1>
       </div>
 
-      <div className="mx-auto w-full max-w-screen-lg">
-        <div ref={sliderRef} className="keen-slider keen-slider__center ">
+      <div className="mx-auto min-w-screen">
+        <div ref={sliderRef} className="keen-slider keen-slider__center">
           {images.map((image, index) => (
             <div key={index} className="keen-slider__slide">
-              <div className="flex flex-row items-center justify-center">
-                <div className="w-1/2">
+              <div className="flex flex-row items-center justify-center min-w-screen">
+                <div className="min-w-screen relative">
                   <Image
                     src={image}
                     alt={`gallery-image-${index}`}
                     width={500}
                     height={500}
+                    responsive
                   />
-                </div>
-                <div className="w-1/2 px-4">
-                  <p className="text-lg">Some text here</p>
-                  <p className="text-sm">Some more text here</p>
                 </div>
               </div>
             </div>
@@ -91,6 +86,8 @@ const Landing = () => {
       </div>
     </div>
   )
+
+ 
 }
 
 
