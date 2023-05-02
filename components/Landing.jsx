@@ -65,18 +65,19 @@ const Landing = () => {
         <h1 className="text-4xl font-bold mb-30">JJB Photography</h1>
       </div>
 
-      <div className="mx-auto min-w-screen">
+      <div className="mx-auto min-w-screen max-w-screen-xl">
         <div ref={sliderRef} className="keen-slider keen-slider__center">
           {images.map((image, index) => (
             <div key={index} className="keen-slider__slide">
               <div className="flex flex-row items-center justify-center min-w-screen">
-                <div className="min-w-screen relative">
+                <div className="min-w-screen relative flex justify-center h-full w-full">
                   <Image
                     src={image}
                     alt={`gallery-image-${index}`}
                     width={500}
                     height={500}
-                    responsive
+    
+                    className="object-cover object-center mx-auto"
                   />
                 </div>
               </div>
@@ -86,6 +87,7 @@ const Landing = () => {
       </div>
     </div>
   )
+
 
  
 }
