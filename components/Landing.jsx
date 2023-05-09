@@ -14,50 +14,52 @@ const images = [
 ]
 
 const Landing = () => {
-  const [sliderRef] = useKeenSlider({
-    loop: true,
-    duration: 4000,
-    slidesPerView: 1,
-    mode: 'snap',
-    autoplay: true,
-    breakpoints: {
+  const [sliderRef] = useKeenSlider(
+    {
+      loop: true,
+      duration: 4000,
+      slidesPerView: 1,
+      mode: 'snap',
+      autoplay: true,
+      breakpoints: {
         '(max-width: 640px)': {
           slidesPerView: 1,
           mode: 'free-snap',
           spacing: 15,
-          centered: false,
-        },
-  }, 
-},[
-    (slider) => {
-      let timeout
-      let mouseOver = false
-      function clearNextTimeout() {
-        clearTimeout(timeout)
+          centered: false
+        }
       }
-      function nextTimeout() {
-        clearTimeout(timeout)
-        if (mouseOver) return
-        timeout = setTimeout(() => {
-          slider.next()
-        }, 4000)
-      }
-      slider.on("created", () => {
-        slider.container.addEventListener("mouseover", () => {
-          mouseOver = true
-          clearNextTimeout()
-        })
-        slider.container.addEventListener("mouseout", () => {
-          mouseOver = false
+    },
+    [
+      (slider) => {
+        let timeout
+        let mouseOver = false
+        function clearNextTimeout() {
+          clearTimeout(timeout)
+        }
+        function nextTimeout() {
+          clearTimeout(timeout)
+          if (mouseOver) return
+          timeout = setTimeout(() => {
+            slider.next()
+          }, 4000)
+        }
+        slider.on('created', () => {
+          slider.container.addEventListener('mouseover', () => {
+            mouseOver = true
+            clearNextTimeout()
+          })
+          slider.container.addEventListener('mouseout', () => {
+            mouseOver = false
+            nextTimeout()
+          })
           nextTimeout()
         })
-        nextTimeout()
-      })
-      slider.on("dragStarted", clearNextTimeout)
-      slider.on("animationEnded", nextTimeout)
-      slider.on("updated", nextTimeout)
-    },
-  ]
+        slider.on('dragStarted', clearNextTimeout)
+        slider.on('animationEnded', nextTimeout)
+        slider.on('updated', nextTimeout)
+      }
+    ]
   )
   return (
     <div className="flex flex-col items-center justify-center h-auto overflow-hidden">
@@ -74,10 +76,9 @@ const Landing = () => {
                   <Image
                     src={image}
                     alt={`gallery-image-${index}`}
-                height={150}
-                width={150}
-    
-                    className="object-cover object-center mx-auto"
+                    width={500}
+                    height={500}
+                    className="object-cover object-center mx-auto lg:h-[567px] lg:w-[900px]"
                   />
                 </div>
               </div>
@@ -87,11 +88,6 @@ const Landing = () => {
       </div>
     </div>
   )
-
-
- 
 }
-
-
 
 export default Landing
