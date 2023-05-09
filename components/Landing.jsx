@@ -78,7 +78,7 @@ const Landing = () => {
                     alt={`gallery-image-${index}`}
                     width={500}
                     height={500}
-                    className="object-cover object-center mx-auto lg:h-[567px] lg:w-[900px]"
+                    className="object-cover object-center mx-auto lg:h-96 lg:w-96"
                   />
                 </div>
               </div>
