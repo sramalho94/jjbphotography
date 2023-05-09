@@ -60,7 +60,7 @@ const Landing = () => {
   ]
   )
   return (
-    <div className="flex flex-col items-center justify-center min-h-fit">
+    <div className="flex flex-col items-center justify-center h-auto overflow-hidden">
       <div className="mb-20">
         <h1 className="text-4xl font-bold mb-30">JJB Photography</h1>
       </div>
@@ -70,12 +70,12 @@ const Landing = () => {
           {images.map((image, index) => (
             <div key={index} className="keen-slider__slide">
               <div className="flex flex-row items-center justify-center min-w-screen">
-                <div className="min-w-screen relative flex justify-center h-full w-full">
+                <div className="min-w-screen relative flex justify-center h-scren w-screen">
                   <Image
                     src={image}
                     alt={`gallery-image-${index}`}
-                    width={500}
-                    height={500}
+                height={150}
+                width={150}
     
                     className="object-cover object-center mx-auto"
                   />
