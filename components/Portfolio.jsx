@@ -22,29 +22,17 @@ const Portfolio = () => {
   ]
 
   return (
-    <div className="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-scroll md:overflow-visible">
+    <div className=" mt-8 mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {images.map((image, index) => (
-        <div
-          key={index}
-          className="relative  md:min-h-[300px] md:max-h-[300px] m-0 p-0"
-        >
-          <Image
-            src={image.src}
-            alt={image.alt}
-            width={300}
-            height={300}
-            responsive
-          />
-          <Link
-            href={image.link}
-            className="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 text-white text-center py-2 "
-          >
+        <div key={index} className="relative">
+          <Image src={image.src} alt={image.alt} layout="responsive"  width={300} height={300} />
+          <Link href={image.link} className="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 text-white text-center py-2">
             {image.alt}
           </Link>
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 export default Portfolio
