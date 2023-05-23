@@ -72,7 +72,7 @@ const Landing = () => {
           {images.map((image, index) => (
             <div key={index} className="keen-slider__slide ">
               <div className="flex flex-row items-center justify-center min-w-screen">
-                <div className="min-w-screen relative flex justify-center h-scren w-screen">
+                <div className="min-w-screen relative flex justify-center h-1/2 w-screen">
                   <Image
                     src={image}
                     alt={`gallery-image-${index}`}
