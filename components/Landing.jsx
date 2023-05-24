@@ -63,8 +63,10 @@ const Landing = () => {
   )
   return (
     <div className="flex flex-col items-center justify-center h-auto ">
-      <div className="mb-20">
-        <h1 className="text-4xl font-bold mb-30">JJB Photography</h1>
+      <div className="mb-20 ">
+        <h1 className="text-3xl font-bold mb-30 md:text-4xl">
+          JJB Photography
+        </h1>
       </div>
 
       <div className="mx-auto min-w-screen max-w-screen-xl ">
