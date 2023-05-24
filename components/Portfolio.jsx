@@ -6,19 +6,24 @@ const Portfolio = () => {
     {
       src: '/banner7.jpg',
       alt: 'Wedding',
-      link: '/wedding'
+      link: '/portfolio/wedding'
     },
     {
       src: '/banner8.jpg',
       alt: 'Maternity',
-      link: '/maternity'
+      link: '/portfolio/maternity'
     },
     {
       src: '/banner6.jpg',
-      alt: 'Candid',
-      link: '/candid'
-    }
+      alt: 'Family',
+      link: '/portfolio/family'
+    },
     // Add more images as needed
+    {
+      src: '/banner2.jpg',
+      alt: 'Portrait',
+      link: '/portfolio/portrait'
+    }
   ]
 
   return (
