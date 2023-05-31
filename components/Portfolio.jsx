@@ -33,7 +33,7 @@ const Portfolio = () => {
           <Image
             src={image.src}
             alt={image.alt}
-            responsive
+            responsive="true"
             width={300}
             height={300}
           />
