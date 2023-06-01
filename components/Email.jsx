@@ -38,8 +38,8 @@ const EmailForm = () => {
   }
 
   return (
-    <div>
-    <div className="bg-white p-10 rounded-lg shadow-lg px-24 m-30 border-dark-purpe">
+    <div className="mt-5 mb-20">
+    <div className="bg-white p-4 md:p-10 rounded-lg shadow-lg px-4 md:px-24 m-4 md:m-30 border-dark-purpe">
     <h1 className="text-3xl font-bold mb-5 text-center text-black">
       Contact Me
     </h1>
