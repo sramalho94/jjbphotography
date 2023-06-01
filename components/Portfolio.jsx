@@ -33,14 +33,14 @@ const Portfolio = () => {
     <div className=" mt-8 mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
    
       {images.map((image, index) => (
-        <div key={index} className="relative">
-          <Image
+        <div key={index} className="relative aspect-w-1 aspect-h-1 overflow-hidden">
+         <div className="relative w-full h-full">
+          <img
             src={image.src}
             alt={image.alt}
-            responsive="true"
-            width={300}
-            height={300}
+            className="object-contain w-full h-full"
           />
+         
           <Link
             href={image.link}
             className="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 text-white text-center py-2"
@@ -48,6 +48,8 @@ const Portfolio = () => {
             {image.alt}
           </Link>
         </div>
+        </div>
+        
       ))}
     </div>
     </div>
