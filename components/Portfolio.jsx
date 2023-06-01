@@ -27,7 +27,11 @@ const Portfolio = () => {
   ]
 
   return (
+    <div>
+    <h1 className="mt-8">When you step in front of my camera, know that I will honor your story and create a visual narrative that truly reflects who you are.</h1>
+
     <div className=" mt-8 mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+   
       {images.map((image, index) => (
         <div key={index} className="relative">
           <Image
@@ -45,6 +49,7 @@ const Portfolio = () => {
           </Link>
         </div>
       ))}
+    </div>
     </div>
   )
 }
