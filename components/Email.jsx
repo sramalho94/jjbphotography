@@ -39,8 +39,8 @@ const EmailForm = () => {
 
   return (
     <div className="mt-5 mb-20">
-    <div className="bg-white p-4 md:p-10 rounded-lg shadow-lg px-4 md:px-24 m-4 md:m-30 border-dark-purpe">
-    <h1 className="text-3xl font-bold mb-5 text-center text-black">
+    <div className="bg-pewter p-4 md:p-10 rounded-lg shadow-lg px-4 md:px-24 m-4 md:m-30 border-dark-purpe">
+    <h1 className="text-3xl font-bold mb-5 text-center ">
       Contact Me
     </h1>
     <form
@@ -140,7 +140,7 @@ const EmailForm = () => {
       </div>
       <button
         type="submit"
-        className="bg-[#D4CAA3] hover:bg-dark-purpe text-white px-6 py-2 rounded font-medium"
+        className="bg-our-beige hover:bg-dark-green hover:text-white text-dark-green px-6 py-2 rounded font-medium"
       >
         Submit
       </button>

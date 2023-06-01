@@ -8,9 +8,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'dark-green': '#1b7326',
+        'dark-green': '#344231',
         'our-beige': '#d4caa3',
-        'dark-purpe': '#731b67'
+        'dark-purpe': '#731b67',
+        'regent-gray': '#92999e',
+        'pewter':'#94ac9c',
+        'akaroa':'#d7b9a9'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

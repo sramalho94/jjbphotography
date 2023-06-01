@@ -6,14 +6,14 @@ const AboutMe = () => {
       <span className="font-bold text-xl mb-5 italic">Hi, I'm Jessica!</span>
       <div className="my-3">
         <div className="flex flex-col md:flex-row">
-          <div className="bg-red-600 h-32 w-32 mx-auto mb-8"></div>
+          <div className="bg-our-beige h-32 w-32 mx-auto mb-8"></div>
           <div className=" px-3 md:flex-1">
             <p className="text-sm text-left pb-4">
             I have a unique passion for capturing the essence of those who often feel unseen. Through my photography, I create a space where
               every moment, big or small, is beautifully preserved, just as it
               unfolds.
             </p>
-            <a href="/contact" className="bg-red-500 text-white px-1 md:px-8 py-2 rounded font-medium">Learn More</a>
+            <a href="/contact" className="bg-our-beige text-dark-green  hover:bg-pewter hover:text-white px-1 md:px-8 py-2 rounded font-medium">Learn More</a>
           </div>
         </div>
       

@@ -10,7 +10,7 @@ const page = () => {
   
   
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-[#fffef2] ">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-dark-green ">
      <EmailForm/>
     </div>
   )
