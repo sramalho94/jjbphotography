@@ -6,7 +6,10 @@ const AboutMe = () => {
       <span className="font-bold text-xl mb-5 italic">Hi, I'm Jessica!</span>
       <div className="my-3">
         <div className="flex flex-col md:flex-row">
-          <div className="bg-our-beige h-32 w-32 mx-auto mb-8"></div>
+        <div className="w-48 h-48 mx-6 relative">
+          <div className="w-full h-full absolute top-0 left-0 opacity-70 bg-our-beige"></div>
+          <div className="w-full h-full absolute top-6 left-6 bg-orange-400"></div>
+        </div>
           <div className=" px-3 md:flex-1">
             <p className="text-sm text-left pb-4">
             I have a unique passion for capturing the essence of those who often feel unseen. Through my photography, I create a space where
