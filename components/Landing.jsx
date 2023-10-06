@@ -33,10 +33,10 @@ const Landing = () => {
     return null
   }
   return (
-    <div className="relative flex flex-col items-center justify-center h-auto ">
+    <div className="relative flex flex-col items-center justify-center h-auto mt-8">
       <div className="absolute text-lg  z-10 left-0 -mt-10 h-full">
         <h1
-          className={`text-3xl font-GreatVibesRegular font-extrabold mb-30 md:text-4xl text-our-beige shadow-xl ${great_vibes.className}`}
+          className={`text-3xl font-GreatVibesRegular font-extrabold mb-30 md:text-4xl text-our-beige shadow-xl ${great_vibes.className} z-10`}
         >
           JJB Photography
         </h1>
