@@ -5,9 +5,9 @@ import Portfolio from '@/components/Portfolio'
 import AboutMe from '@/components/AboutMe'
 export default function Home() {
   return (
-    <main className="flex  flex-col items-center justify-between p-24 min-h-screen">
+    <main className="flex flex-col items-center justify-between  min-h-screen md:p-24">
       <Landing />
- 
+
       <Portfolio />
       <AboutMe />
     </main>
