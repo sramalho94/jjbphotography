@@ -1,11 +1,12 @@
 'use client'
 
-import React from 'react'
-import Image from 'next/image'
-import { useKeenSlider } from 'keen-slider/react'
-import 'keen-slider/keen-slider.min.css'
+import React, { useEffect, useState } from 'react'
+import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa'
+import { Great_Vibes } from 'next/font/google'
 
-const images = [
+const great_vibes = Great_Vibes({ subsets: ['latin'], weight: '400' })
+
+const slides = [
   '/banner1.jpeg',
   '/banner2.jpg',
   '/banner3.jpg',
@@ -14,80 +15,55 @@ const images = [
 ]
 
 const Landing = () => {
-  const [sliderRef] = useKeenSlider(
-    {
-      loop: true,
-      duration: 4000,
-      slidesPerView: 1,
-      mode: 'snap',
-      autoplay: true,
-      breakpoints: {
-        '(max-width: 640px)': {
-          slidesPerView: 1,
-          mode: 'free-snap',
-          spacing: 15,
-          centered: false
-        }
-      }
-    },
-    [
-      (slider) => {
-        let timeout
-        let mouseOver = false
-        function clearNextTimeout() {
-          clearTimeout(timeout)
-        }
-        function nextTimeout() {
-          clearTimeout(timeout)
-          if (mouseOver) return
-          timeout = setTimeout(() => {
-            slider.next()
-          }, 4000)
-        }
-        slider.on('created', () => {
-          slider.container.addEventListener('mouseover', () => {
-            mouseOver = true
-            clearNextTimeout()
-          })
-          slider.container.addEventListener('mouseout', () => {
-            mouseOver = false
-            nextTimeout()
-          })
-          nextTimeout()
-        })
-        slider.on('dragStarted', clearNextTimeout)
-        slider.on('animationEnded', nextTimeout)
-        slider.on('updated', nextTimeout)
-      }
-    ]
-  )
+  const [current, setCurrent] = useState(0)
+
+  const prevStep = () => {
+    setCurrent(current === 0 ? slides.length - 1 : current - 1)
+  }
+
+  const nextStep = () => {
+    setCurrent(current === slides.length - 1 ? 0 : current + 1)
+  }
+
+  useEffect(() => {
+    setTimeout(nextStep, 1000)
+  }, [slides])
+
+  if (!Array.isArray(slides) || slides.length <= 0) {
+    return null
+  }
   return (
-    <div className="flex flex-col items-center justify-center h-auto ">
-      <div className="mb-20 ">
-        <h1 className="text-3xl font-bold mb-30 md:text-4xl">
+    <div className="relative flex flex-col items-center justify-center h-auto mt-8">
+      <div className="absolute text-lg  z-10 left-0 -mt-10 h-full">
+        <h1
+          className={`text-3xl font-GreatVibesRegular font-extrabold mb-30 md:text-4xl text-our-beige shadow-xl ${great_vibes.className} z-10`}
+        >
           JJB Photography
         </h1>
       </div>
 
-      <div className="mx-auto min-w-screen max-w-screen-xl ">
-        <div ref={sliderRef} className="keen-slider keen-slider__center ">
-          {images.map((image, index) => (
-            <div key={index} className="keen-slider__slide ">
-              <div className="flex flex-row items-center justify-center min-w-screen">
-                <div className="min-w-screen relative flex justify-center h-1/2 w-screen">
-                  <Image
-                    src={image}
-                    alt={`gallery-image-${index}`}
-                    width={500}
-                    height={500}
-                    className="object-cover object-center mx-auto lg:h-96 lg:w-96"
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        
+      <div className="slider relative z-0">
+        {slides.map((slide, index) => (
+          <div
+            style={{ display: index === current ? 'block' : 'none' }}
+            className={index === current ? 'slide active' : 'slide'}
+            key={index}
+          >
+            <img
+              className="image min-w-screen object-cover z-0"
+              src={slide}
+              alt=""
+            />
+            <FaChevronCircleLeft
+              className="circle text-silver absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 text-our-beige"
+              onClick={prevStep}
+            />
+            <FaChevronCircleRight
+              className="chevron text-silver absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2 text-our-beige"
+              onClick={nextStep}
+            />
+          </div>
+        ))}
       </div>
     </div>
   )
