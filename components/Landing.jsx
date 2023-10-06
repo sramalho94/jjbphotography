@@ -30,14 +30,14 @@ const Landing = () => {
     return null
   }
   return (
-    <div className="flex flex-col items-center justify-center h-auto ">
-      <div className="mb-20 ">
-        <h1 className="text-3xl font-bold mb-30 md:text-4xl">
+    <div className="relative flex flex-col items-center justify-center h-auto ">
+      <div className="absolute text-lg  z-10 left-0 -mt-10 h-full">
+        <h1 className="text-3xl font-bold mb-30 md:text-4xl text-our-beige">
           JJB Photography
         </h1>
       </div>
 
-      <div className="slider relative">
+      <div className="slider relative z-0">
         {slides.map((slide, index) => (
           <div
             style={{ display: index === current ? 'block' : 'none' }}
@@ -45,7 +45,7 @@ const Landing = () => {
             key={index}
           >
             <img
-              className="image min-w-screen min-h-screen object-cover z-0"
+              className="image min-w-screen object-cover z-0"
               src={slide}
               alt=""
             />
