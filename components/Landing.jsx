@@ -1,11 +1,9 @@
 'use client'
 
-import React from 'react'
-import Image from 'next/image'
-import { useKeenSlider } from 'keen-slider/react'
-import 'keen-slider/keen-slider.min.css'
+import React, { useEffect, useState } from 'react'
+import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa'
 
-const images = [
+const slides = [
   '/banner1.jpeg',
   '/banner2.jpg',
   '/banner3.jpg',
@@ -14,53 +12,23 @@ const images = [
 ]
 
 const Landing = () => {
-  const [sliderRef] = useKeenSlider(
-    {
-      loop: true,
-      duration: 4000,
-      slidesPerView: 1,
-      mode: 'snap',
-      autoplay: true,
-      breakpoints: {
-        '(max-width: 640px)': {
-          slidesPerView: 1,
-          mode: 'free-snap',
-          spacing: 15,
-          centered: false
-        }
-      }
-    },
-    [
-      (slider) => {
-        let timeout
-        let mouseOver = false
-        function clearNextTimeout() {
-          clearTimeout(timeout)
-        }
-        function nextTimeout() {
-          clearTimeout(timeout)
-          if (mouseOver) return
-          timeout = setTimeout(() => {
-            slider.next()
-          }, 4000)
-        }
-        slider.on('created', () => {
-          slider.container.addEventListener('mouseover', () => {
-            mouseOver = true
-            clearNextTimeout()
-          })
-          slider.container.addEventListener('mouseout', () => {
-            mouseOver = false
-            nextTimeout()
-          })
-          nextTimeout()
-        })
-        slider.on('dragStarted', clearNextTimeout)
-        slider.on('animationEnded', nextTimeout)
-        slider.on('updated', nextTimeout)
-      }
-    ]
-  )
+  const [current, setCurrent] = useState(0)
+
+  const prevStep = () => {
+    setCurrent(current === 0 ? slides.length - 1 : current - 1)
+  }
+
+  const nextStep = () => {
+    setCurrent(current === slides.length - 1 ? 0 : current + 1)
+  }
+
+  useEffect(() => {
+    setTimeout(nextStep, 1000)
+  }, [slides])
+
+  if (!Array.isArray(slides) || slides.length <= 0) {
+    return null
+  }
   return (
     <div className="flex flex-col items-center justify-center h-auto ">
       <div className="mb-20 ">
@@ -69,25 +37,28 @@ const Landing = () => {
         </h1>
       </div>
 
-      <div className="mx-auto min-w-screen max-w-screen-xl ">
-        <div ref={sliderRef} className="keen-slider keen-slider__center ">
-          {images.map((image, index) => (
-            <div key={index} className="keen-slider__slide ">
-              <div className="flex flex-row items-center justify-center min-w-screen">
-                <div className="min-w-screen relative flex justify-center h-1/2 w-screen">
-                  <Image
-                    src={image}
-                    alt={`gallery-image-${index}`}
-                    width={500}
-                    height={500}
-                    className="object-cover object-center mx-auto lg:h-96 lg:w-96"
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        
+      <div className="slider relative">
+        {slides.map((slide, index) => (
+          <div
+            style={{ display: index === current ? 'block' : 'none' }}
+            className={index === current ? 'slide active' : 'slide'}
+            key={index}
+          >
+            <img
+              className="image min-w-screen min-h-screen object-cover z-0"
+              src={slide}
+              alt=""
+            />
+            <FaChevronCircleLeft
+              className="circle text-silver absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2"
+              onClick={prevStep}
+            />
+            <FaChevronCircleRight
+              className="chevron text-silver absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2"
+              onClick={nextStep}
+            />
+          </div>
+        ))}
       </div>
     </div>
   )
