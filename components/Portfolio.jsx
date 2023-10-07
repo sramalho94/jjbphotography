@@ -32,7 +32,7 @@ const Portfolio = () => {
   return (
     <div>
       <h1
-        className={`mt-8 ${great_vibes.className} font-extrabold text-2xl text-our-beige text-center`}
+        className={`mt-8 mx-1 ${great_vibes.className} font-extrabold text-2xl text-our-beige text-center md:text-4xl`}
       >
         When you step in front of my camera, know that I will honor your story
         and create a visual narrative that truly reflects who you are.
@@ -54,7 +54,7 @@ const Portfolio = () => {
             />
             <Link
               href={image.link}
-              className={`absolute  bg-our-beige bg-opacity-80 text-dark-green text-center mt-48 ml-32 md:mt-60 md:ml-44 ${bodoni_moda.className}`}
+              className={`absolute  bg-our-beige bg-opacity-80 text-dark-green text-center mt-48 ml-32 md:mt-60 md:ml-44 ${bodoni_moda.className} hover:underline`}
             >
               {image.alt}
             </Link>
