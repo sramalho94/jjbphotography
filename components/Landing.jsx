@@ -48,8 +48,8 @@ const Landing = () => {
     return null
   }
   return (
-    <div className="relative flex flex-col items-center justify-center h-auto mt-8">
-      <div className="slider relative z-0">
+    <div className="relative flex flex-col items-center justify-center mt-8 min-w-screen">
+      <div className="slider relative z-0 min-w">
         <div className="absolute text-lg z-10 h-full">
           <h1
             className={`text-3xl font-GreatVibesRegular font-extrabold  md:text-4xl text-our-beige ${great_vibes.className} z-10 h-full -mt-6 ml-3`}
@@ -64,13 +64,15 @@ const Landing = () => {
             className={index === current ? 'slide active' : 'slide'}
             key={index}
           >
-            <img
-              className="image min-w-screen object-cover -z-10"
-              src={slide}
-              alt={index}
-              onLoad={() => console.log('Image loaded')}
-              onError={() => console.error('Image load error')}
-            />
+            <div className="min-wscreen">
+              <img
+                className="image w-full object-cover -z-10"
+                src={slide}
+                alt={index}
+                onLoad={() => console.log('Image loaded')}
+                onError={() => console.error('Image load error')}
+              />
+            </div>
             <FaChevronCircleLeft
               className="circle text-silver absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 text-our-beige ml-4 text-2xl z-40"
               onClick={() => prevStep()}
