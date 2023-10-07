@@ -1,10 +1,15 @@
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
+import { Bodoni_Moda } from 'next/font/google'
+
+const bodoni_moda = Bodoni_Moda({ subsets: ['latin'], weight: '600' })
 
 const NavBar = () => {
   return (
-    <ul className="flex flex-row justify-center space-x-3 bg-our-beige">
+    <ul
+      className={`flex flex-row justify-center space-x-3 bg-our-beige ${bodoni_moda.className}`}
+    >
       <div className="relative h-10 w-10 px-5 md:px-10 bg-our-beige">
         <Image src="/jjb_logo_cropped.png" fill alt="logo" />
       </div>
