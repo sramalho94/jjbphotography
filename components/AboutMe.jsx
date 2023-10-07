@@ -7,9 +7,9 @@ const bodoni_moda = Bodoni_Moda({ subsets: ['latin'], weight: '600' })
 
 const AboutMe = () => {
   return (
-    <div className="text-center py-8 mb-14">
+    <div className="relative text-center py-8 mb-14">
       <span
-        className={`font-bold text-4xl mb-5 italic ${great_vibes.className} text-our-beige`}
+        className={`font-bold text-4xl mb-5 italic ${great_vibes.className} text-our-beige md:absolute`}
       >
         Hi, I'm Jessica!
       </span>
