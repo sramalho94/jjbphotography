@@ -26,8 +26,8 @@ const Landing = () => {
   }
 
   useEffect(() => {
-    setTimeout(nextStep, 1000)
-  }, [slides])
+    setTimeout(nextStep, 4000)
+  }, [current])
 
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null
