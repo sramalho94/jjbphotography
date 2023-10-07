@@ -13,7 +13,6 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.12",
-    "@next/font": "^13.5.4",
     "autoprefixer": "10.4.14",
     "emailjs-com": "^3.2.0",
     "keen-slider": "^6.8.5",
