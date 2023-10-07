@@ -1,64 +1,8 @@
-import * as React from 'react'
-import AppBar from '@mui/material/AppBar'
-import Button from '@mui/material/Button'
-import CameraIcon from '@mui/icons-material/PhotoCamera'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import CssBaseline from '@mui/material/CssBaseline'
-import Grid from '@mui/material/Grid'
-import Stack from '@mui/material/Stack'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import Container from '@mui/material/Container'
-import Link from '@mui/material/Link'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Great_Vibes } from 'next/font/google'
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
-
-const defaultTheme = createTheme()
-
-const AlbumItem = ({ image }) => (
-  <Grid item xs={12} sm={6} md={4}>
-    <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      <CardMedia
-        component="div"
-        sx={{
-          // 16:9
-          pt: '56.25%'
-        }}
-        image={image.src}
-      />
-      <CardContent sx={{ flexGrow: 1 }}>
-        <Typography gutterBottom variant="h5" component="h2">
-          {image.alt}
-        </Typography>
-        <Typography>
-          This is a media card. You can use this section to describe the
-          content.
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">View</Button>
-        <Button size="small">Edit</Button>
-      </CardActions>
-    </Card>
-  </Grid>
-)
-
+const great_vibes = Great_Vibes({ subsets: ['latin'], weight: '400' })
 const Portfolio = () => {
   const images = [
     {
@@ -76,6 +20,7 @@ const Portfolio = () => {
       alt: 'Family',
       link: '/portfolio/family'
     },
+    // Add more images as needed
     {
       src: '/banner2.jpg',
       alt: 'Portrait',
@@ -84,31 +29,35 @@ const Portfolio = () => {
   ]
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
-        {/* Your hero unit code */}
-        {/* ... */}
-        <Container sx={{ py: 8 }} maxWidth="md">
-          {/* Your hero unit */}
-          <Grid container spacing={4}>
-            {images.map((image, index) => (
-              <AlbumItem key={index} image={image} />
-            ))}
-          </Grid>
-        </Container>
-      </main>
-      {/* Your footer code */}
-      {/* ... */}
-    </ThemeProvider>
+    <div>
+      <h1
+        className={`mt-8 ${great_vibes.className} font-extrabold text-2xl text-our-beige`}
+      >
+        When you step in front of my camera, know that I will honor your story
+        and create a visual narrative that truly reflects who you are.
+      </h1>
+
+      <div className="flex flex-wrap justify-center ">
+        {images.map((image, index) => (
+          <div key={index} className="relative h-52 w-52 m-2 md:h-64 md:w-64">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              responsive="true"
+              // width={300}
+              // height={300}
+              fill
+            />
+            <Link
+              href={image.link}
+              className="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 text-white text-center py-2"
+            >
+              {image.alt}
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
