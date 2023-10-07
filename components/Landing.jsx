@@ -18,31 +18,46 @@ const Landing = () => {
   const [current, setCurrent] = useState(0)
 
   const prevStep = () => {
-    setCurrent(current === 0 ? slides.length - 1 : current - 1)
+    console.log('Before prevStep setCurrent: ', current)
+    setCurrent((prevCurrent) =>
+      prevCurrent === 0 ? slides.length - 1 : prevCurrent - 1
+    )
+    console.log('After prevStep setCurrent: ', current)
   }
 
   const nextStep = () => {
-    setCurrent(current === slides.length - 1 ? 0 : current + 1)
+    console.log('Before setCurrent: ', current)
+    setCurrent((prevCurrent) =>
+      prevCurrent === slides.length - 1 ? 0 : prevCurrent + 1
+    )
+    console.log('After setCurrent: ', current)
   }
 
   useEffect(() => {
-    setTimeout(nextStep, 4000)
-  }, [current])
+    const interval = setInterval(() => {
+      console.log('fired nextStep')
+      nextStep()
+    }, 4000)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
 
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null
   }
   return (
     <div className="relative flex flex-col items-center justify-center h-auto mt-8">
-      <div className="absolute text-lg  z-10 left-0 -mt-10 h-full">
-        <h1
-          className={`text-3xl font-GreatVibesRegular font-extrabold mb-30 md:text-4xl text-our-beige shadow-xl ${great_vibes.className} z-10`}
-        >
-          JJB Photography
-        </h1>
-      </div>
-
       <div className="slider relative z-0">
+        <div className="absolute text-lg z-10 h-full">
+          <h1
+            className={`text-3xl font-GreatVibesRegular font-extrabold  md:text-4xl text-our-beige ${great_vibes.className} z-10 h-full -mt-6 ml-3`}
+          >
+            JJB Photography
+          </h1>
+        </div>
+
         {slides.map((slide, index) => (
           <div
             style={{ display: index === current ? 'block' : 'none' }}
@@ -50,17 +65,19 @@ const Landing = () => {
             key={index}
           >
             <img
-              className="image min-w-screen object-cover z-0"
+              className="image min-w-screen object-cover -z-10"
               src={slide}
-              alt=""
+              alt={index}
+              onLoad={() => console.log('Image loaded')}
+              onError={() => console.error('Image load error')}
             />
             <FaChevronCircleLeft
-              className="circle text-silver absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 text-our-beige"
-              onClick={prevStep}
+              className="circle text-silver absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 text-our-beige ml-4 text-2xl z-40"
+              onClick={() => prevStep()}
             />
             <FaChevronCircleRight
-              className="chevron text-silver absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2 text-our-beige"
-              onClick={nextStep}
+              className="chevron text-silver absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2 text-our-beige mr-4 text-2xl z-40"
+              onClick={() => nextStep()}
             />
           </div>
         ))}
