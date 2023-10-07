@@ -20,7 +20,7 @@ const AboutMe = () => {
           </div>
           <div className="px-3 md:flex-1 md:my-auto">
             <p
-              className={`text-sm text-left pb-4 ${bodoni_moda.className} text-our-beige text-center md:text-xl`}
+              className={`text-sm text-left pb-4 ${bodoni_moda.className} text-our-beige text-center md:text-xl max-w-md`}
             >
               I have a unique passion for capturing the essence of those who
               often feel unseen. Through my photography, I create a space where
